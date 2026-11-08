@@ -1,23 +1,35 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "@/components/layout/Header";
+import { HeroSection } from "@/components/homepage/HeroSection";
+import { BonfireScene } from "@/components/homepage/BonfireScene";
+import { GameSelector } from "@/components/homepage/GameSelector";
+import { JourneyProvider } from "@/context/journey";
 
-// The home route ships no og:image, so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "THE BONFIRE — Every journey needs a light" },
+      { name: "description", content: "A quiet companion beside the fire for Elden Ring, Hollow Knight and Sekiro players." },
+      { property: "og:title", content: "THE BONFIRE — Every journey needs a light" },
+      { property: "og:description", content: "A quiet companion beside the fire for Elden Ring, Hollow Knight and Sekiro players." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: HomePage,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function HomePage() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <JourneyProvider>
+      <div className="min-h-screen bg-background">
+        <Header />
+        <main>
+          <HeroSection />
+          <BonfireScene />
+          <GameSelector />
+        </main>
+      </div>
+    </JourneyProvider>
   );
 }

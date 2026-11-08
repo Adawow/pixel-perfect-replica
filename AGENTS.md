@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Architecture
+- Game metadata lives in `src/data/games.ts`; UI never hardcodes game lists — one source to extend.
+- Selected/hovered game state lives in `src/context/journey.tsx` — single source of truth for future skeleton reactions.
+- The companion renders through a component taking `{hoveredGame, selectedGame}` (`SkeletonPlaceholder`); a future 3D model must keep that prop contract so the page needn't change.
