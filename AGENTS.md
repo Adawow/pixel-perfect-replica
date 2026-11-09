@@ -33,3 +33,6 @@ use the editor.
 - Game metadata lives in `src/data/games.ts`; UI never hardcodes game lists — one source to extend.
 - Selected/hovered game state lives in `src/context/journey.tsx` — single source of truth for future skeleton reactions.
 - The companion renders through a component taking `{hoveredGame, selectedGame}` (`SkeletonPlaceholder`); a future 3D model must keep that prop contract so the page needn't change.
+- The 3D companion is dynamically imported after a WebGL capability check; keep the original illustration visible until a real frame renders, and restore it on load or context failure.
+- Companion idle mathematics live in a renderer-independent module and respect reduced motion; per-frame transforms use refs rather than React state.
+- All 3D material and lighting colors are read from semantic `--scene-*` CSS tokens; model license/source records live next to the asset pointers.

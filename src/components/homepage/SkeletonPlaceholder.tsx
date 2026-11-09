@@ -9,8 +9,8 @@ export interface SkeletonViewProps {
 }
 
 /**
- * Temporary still illustration of the companion. A future 3D model component
- * should accept the same props and replace this one inside BonfireScene.
+ * Original still illustration, retained as the loading and graphics-failure
+ * fallback for the 3D companion. Both views keep the same journey prop contract.
  */
 export function SkeletonPlaceholder(_props: SkeletonViewProps) {
   return (

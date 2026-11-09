@@ -68,6 +68,16 @@
   --ring: var(--firelight);
   --glow-fire: radial-gradient(closest-side, color-mix(in oklab, var(--ember) 38%, transparent), transparent);
   --vignette: radial-gradient(ellipse at center, transparent 35%, var(--background) 72%);
+  /* Linear-light scene roles read by the client-only 3D canvas. */
+  --scene-background: #101010;
+  --scene-bone: #f1f0eb;
+  --scene-shadow: #171717;
+  --scene-wood: #403a35;
+  --scene-bark-light: #625950;
+  --scene-ash: #292725;
+  --scene-fill: #bac5c9;
+  --scene-flame: #e69a54;
+  --scene-ember: #d4773c;
 }
 
 @layer base {
