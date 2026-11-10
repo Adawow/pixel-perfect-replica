@@ -1,13 +1,8 @@
 import { forwardRef, type KeyboardEvent } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { selectorTitleTreatments as treatments } from "@/components/game/title-treatments";
 import type { Game } from "@/types/game";
-
-const treatments: Record<Game["treatment"], string> = {
-  wide: "font-display text-3xl uppercase tracking-[0.22em] lg:text-4xl",
-  light: "font-display text-3xl italic font-light tracking-[0.06em] lg:text-4xl",
-  condensed: "font-sans text-2xl font-semibold uppercase tracking-[0.5em] lg:text-3xl",
-};
 
 interface Props {
   game: Game;

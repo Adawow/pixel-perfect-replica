@@ -1,5 +1,6 @@
 import { useRef, type KeyboardEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 import { GAMES, getGame } from "@/data/games";
 import { useJourney } from "@/context/journey";
 import { GameOption } from "./GameOption";
@@ -52,20 +53,30 @@ export function GameSelector() {
         ))}
       </div>
 
-      <div className="mt-10 flex min-h-12 justify-center" aria-live="polite">
+      <div className="mt-10 flex min-h-24 justify-center" aria-live="polite">
         <AnimatePresence mode="wait">
           {selected && (
-            <motion.p
+            <motion.div
               key={selected.id}
               initial={{ opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.5 }}
-              className="text-center font-display text-lg italic text-muted-foreground"
+              className="flex flex-col items-center gap-5"
             >
-              <span className="text-foreground not-italic tracking-[0.12em]">{selected.title}</span> chosen.
-              Its path opens in a later chapter.
-            </motion.p>
+              <p className="text-center font-display text-lg italic text-muted-foreground">
+                <span className="text-foreground not-italic tracking-[0.12em]">{selected.title}</span> chosen.
+                The path is marked.
+              </p>
+              <Link
+                to="/journey/$gameId"
+                params={{ gameId: selected.id }}
+                className="group inline-flex items-center gap-3 border border-ember/50 px-6 py-3 text-xs uppercase tracking-[0.25em] text-firelight transition-colors duration-500 hover:border-firelight hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+              >
+                Enter the {selected.title} companion
+                <span aria-hidden className="transition-transform duration-500 group-hover:translate-x-1">→</span>
+              </Link>
+            </motion.div>
           )}
         </AnimatePresence>
       </div>

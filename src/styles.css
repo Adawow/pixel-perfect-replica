@@ -37,6 +37,7 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-journey: var(--journey-accent);
 }
 
 /* Palette: #101010 bg, #171717 secondary, #202020 surface, #F1F0EB text,
@@ -78,6 +79,42 @@
   --scene-fill: #bac5c9;
   --scene-flame: #e69a54;
   --scene-ember: #d4773c;
+  /* Journey dashboards: each game overrides these under [data-journey]. */
+  --journey-accent: var(--firelight);
+  --journey-tint: transparent;
+  --journey-mist: color-mix(in oklab, var(--foreground) 10%, transparent);
+  --journey-particle: var(--firelight);
+}
+
+/* Elden Ring — Limgrave dusk: faint olive ground, soft muted gold. */
+[data-journey="elden-ring"] {
+  --background: oklch(0.168 0.005 110);
+  --secondary: oklch(0.2 0.006 100);
+  --journey-accent: oklch(0.8 0.075 82);
+  --journey-tint: oklch(0.6 0.08 80 / 0.16);
+  --journey-mist: oklch(0.86 0.02 110 / 0.13);
+  --journey-particle: oklch(0.85 0.09 85);
+}
+
+/* Hollow Knight — Hallownest: deep charcoal, muted blue-grey. */
+[data-journey="hollow-knight"] {
+  --background: oklch(0.16 0.01 255);
+  --secondary: oklch(0.195 0.012 255);
+  --border: oklch(0.29 0.012 255);
+  --journey-accent: oklch(0.8 0.035 245);
+  --journey-tint: oklch(0.45 0.04 250 / 0.22);
+  --journey-mist: oklch(0.82 0.02 245 / 0.1);
+  --journey-particle: oklch(0.88 0.03 240);
+}
+
+/* Sekiro — Ashina temple: warm stone and moss, restrained maple red. */
+[data-journey="sekiro"] {
+  --background: oklch(0.168 0.006 50);
+  --secondary: oklch(0.2 0.008 50);
+  --journey-accent: oklch(0.7 0.1 40);
+  --journey-tint: oklch(0.5 0.08 40 / 0.16);
+  --journey-mist: oklch(0.85 0.01 70 / 0.11);
+  --journey-particle: oklch(0.58 0.13 32);
 }
 
 @layer base {
@@ -119,6 +156,72 @@
   box-shadow: 0 0 6px var(--ember);
   opacity: 0;
   animation: rise linear infinite;
+}
+
+@utility journey-scene-shade {
+  background:
+    linear-gradient(to right, color-mix(in oklab, var(--background) 78%, transparent) 0%, transparent 65%),
+    linear-gradient(to bottom, color-mix(in oklab, var(--background) 55%, transparent) 0%, transparent 28%, color-mix(in oklab, var(--background) 55%, transparent) 72%, var(--background) 100%),
+    radial-gradient(ellipse at 70% 35%, var(--journey-tint), transparent 60%);
+}
+
+@utility journey-mist {
+  background: radial-gradient(ellipse at center, var(--journey-mist), transparent 70%);
+  filter: blur(18px);
+  animation: mist-drift 22s ease-in-out infinite alternate;
+}
+
+@utility journey-mote {
+  position: absolute;
+  width: var(--size, 3px);
+  height: var(--size, 3px);
+  border-radius: 9999px;
+  background: var(--journey-particle);
+  box-shadow: 0 0 8px var(--journey-particle);
+  opacity: 0;
+  animation: rise linear infinite;
+}
+
+@utility journey-spore {
+  position: absolute;
+  width: var(--size, 3px);
+  height: var(--size, 3px);
+  border-radius: 9999px;
+  background: var(--journey-particle);
+  box-shadow: 0 0 6px var(--journey-particle);
+  opacity: 0;
+  animation: spore-float ease-in-out infinite;
+}
+
+@utility journey-leaf {
+  position: absolute;
+  top: -12px;
+  width: var(--size, 8px);
+  height: calc(var(--size, 8px) * 0.6);
+  border-radius: 80% 0 80% 0;
+  background: var(--journey-particle);
+  opacity: 0;
+  animation: leaf-fall linear infinite;
+}
+
+@keyframes mist-drift {
+  from { transform: translateX(-4%); opacity: 0.7; }
+  to { transform: translateX(4%); opacity: 1; }
+}
+
+@keyframes spore-float {
+  0% { opacity: 0; transform: translate(0, 0); }
+  20% { opacity: 0.7; }
+  80% { opacity: 0.5; }
+  100% { opacity: 0; transform: translate(var(--drift, 10px), -260px); }
+}
+
+@keyframes leaf-fall {
+  0% { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+  10% { opacity: 0.75; }
+  50% { transform: translate(calc(var(--drift, 20px) * -0.5), 50vh) rotate(160deg); }
+  90% { opacity: 0.55; }
+  100% { opacity: 0; transform: translate(var(--drift, 20px), 95vh) rotate(320deg); }
 }
 
 @keyframes flicker {
