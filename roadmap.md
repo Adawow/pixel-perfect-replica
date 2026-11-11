@@ -1,6 +1,5 @@
-# THE BONFIRE — Phase 3
-- [x] Elden Ring, Hollow Knight and Sekiro companion dashboards, each with its own scene and atmosphere.
-- [x] Boss Coach, Lore Explorer, Build Creator and AI Companion sections, clearly marked as awaiting AI.
-- [x] Homepage selection leads into each dashboard; return, game switching and refresh work.
-- [x] Verify navigation, homepage skeleton, mobile layout and console.
-- [x] Stop after Phase 3; no AI, weapon swaps, login, payments or database.
+# THE BONFIRE — Phase 4
+- [ ] Three original companions (Limgrave wayfarer, cavern moth wanderer, Ashina shinobi apprentice) as rendered artwork placed in each world with gentle idle animation.
+- [ ] AI Companion section becomes a working chat per game (own personality + game knowledge), history kept on this device, new-conversation option.
+- [ ] Boss Coach, Lore Explorer, Build Creator stay "Awaiting AI".
+- [ ] Test chats with real answers, desktop + mobile, navigation, homepage untouched.
