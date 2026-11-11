@@ -12,7 +12,7 @@ import { SectionNav } from "./SectionNav";
 interface Props {
   game: Game;
   journey: Journey;
-  section?: SectionId;
+  section?: SectionId | undefined;
   children: ReactNode;
 }
 
@@ -33,7 +33,7 @@ export function JourneyLayout({ game, journey, section, children }: Props) {
 
         <Header />
 
-        <div className="relative mx-auto flex min-h-[62vh] max-w-6xl flex-col px-6 pb-14 md:min-h-[70vh] md:px-10 md:pb-20">
+        <div className="relative mx-auto flex min-h-[min(62vh,620px)] max-w-6xl flex-col px-6 pb-14 md:min-h-[min(72vh,760px)] md:px-10 md:pb-20">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <BackToFire />
             <GameNav current={game.id} section={section} />

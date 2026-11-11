@@ -10,8 +10,8 @@ import { getSection, parseSection } from "@/data/sections";
 import type { SectionId } from "@/types/journey";
 
 export const Route = createFileRoute("/journey/$gameId")({
-  validateSearch: (search: Record<string, unknown>): { section?: SectionId } => ({
-    section: parseSection(search.section),
+  validateSearch: (search: Record<string, unknown>): { section?: SectionId | undefined } => ({
+    section: parseSection(search["section"]),
   }),
   loader: ({ params }) => {
     const game = getGame(params.gameId);

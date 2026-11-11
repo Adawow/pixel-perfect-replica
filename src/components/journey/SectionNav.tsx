@@ -6,7 +6,7 @@ import type { SectionId } from "@/types/journey";
 
 interface Props {
   gameId: GameId;
-  active?: SectionId;
+  active?: SectionId | undefined;
 }
 
 const items: { id: SectionId | undefined; title: string }[] = [

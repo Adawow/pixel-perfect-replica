@@ -36,3 +36,6 @@ use the editor.
 - The 3D companion is dynamically imported after a WebGL capability check; keep the original illustration visible until a real frame renders, and restore it on load or context failure.
 - Companion idle mathematics live in a renderer-independent module and respect reduced motion; per-frame transforms use refs rather than React state.
 - All 3D material and lighting colors are read from semantic `--scene-*` CSS tokens; model license/source records live next to the asset pointers.
+- Game dashboards live at `/journey/$gameId` with the open feature in the `section` search param, so refreshes and shared links keep state; per-game copy lives in `src/data/journeys.ts` and shared feature definitions in `src/data/sections.ts`.
+- Each dashboard's atmosphere comes from `[data-journey]`-scoped CSS tokens (`--journey-*`) on one shared layout; add a game by adding data and a token block, not new components.
+- Companion features show only hand-written reference notes and a clear awaiting-AI notice until AI is integrated; never render placeholder chat or generated-looking answers.

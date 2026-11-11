@@ -7,7 +7,7 @@ import type { SectionId } from "@/types/journey";
 interface Props {
   current: GameId;
   /** Kept when switching so the visitor stays on the same feature. */
-  section?: SectionId;
+  section?: SectionId | undefined;
 }
 
 export function GameNav({ current, section }: Props) {
