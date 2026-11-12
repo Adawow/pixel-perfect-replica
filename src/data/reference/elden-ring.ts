@@ -1,0 +1,280 @@
+import type { GameReference } from "@/types/reference";
+
+/** Hand-written notes based on widely shared community strategy. Not AI-generated. */
+export const ELDEN_RING: GameReference = {
+  stageLabels: { early: "Limgrave & Liurnia", mid: "Caelid to Leyndell", late: "Endgame" },
+  bosses: [
+    {
+      id: "margit",
+      name: "Margit, the Fell Omen",
+      location: "Stormhill, at the gate of Stormveil Castle",
+      required: true,
+      difficulty: 3,
+      phases: [
+        "Delayed cane and dagger strikes built to catch early rolls.",
+        "Below half health he conjures a golden hammer and a holy sword, adding longer combos.",
+      ],
+      tips: [
+        "Roll late, not early — wait out the pause in his delayed swings.",
+        "Margit's Shackle (sold by Patches in Murkwater Cave) pins him briefly; it works once per phase.",
+        "Summon Sorcerer Rogier from the sign near the fog gate, or a Spirit Ash, to split his attention.",
+        "Aim for around 20 Vigor and a +3 weapon before attempting.",
+      ],
+      counters: ["Bleed and frostbite", "Jump attacks after long combos", "Spirit Ashes"],
+    },
+    {
+      id: "godrick",
+      name: "Godrick the Grafted",
+      location: "Stormveil Castle, Liftside Chamber",
+      required: false,
+      difficulty: 3,
+      phases: [
+        "Axe swings, ground slams and a whirlwind that pushes you away.",
+        "At half health he grafts a dragon's head onto his arm and adds fire breath.",
+      ],
+      tips: [
+        "Stay close and to his side; his whirlwind and slam shockwaves punish range.",
+        "Jump over the expanding shockwave from his axe slams.",
+        "In phase two, move toward his side away from the dragon head when it breathes fire.",
+        "Nepheli Loux can be summoned if you have met her in the castle.",
+      ],
+      counters: ["Bleed", "Staying close to his back", "Summons"],
+    },
+    {
+      id: "rennala",
+      name: "Rennala, Queen of the Full Moon",
+      location: "Academy of Raya Lucaria, Grand Library",
+      required: false,
+      difficulty: 2,
+      phases: [
+        "She floats inside a barrier while students protect her. Strike the students glowing gold to bring her down.",
+        "In the second phase she casts powerful sorceries and summons spirit creatures.",
+      ],
+      tips: [
+        "Lock onto the glowing students; a ranged attack or throwing knives speeds this up.",
+        "Rennala's Full Moon tracks slowly — sprint sideways, then roll as it arrives.",
+        "Close the distance between spells; she is fragile up close.",
+      ],
+      counters: ["Physical damage (she resists magic)", "Aggressive pressure in phase two"],
+    },
+    {
+      id: "radahn",
+      name: "Starscourge Radahn",
+      location: "Wailing Dunes, Caelid (Radahn Festival)",
+      required: false,
+      difficulty: 4,
+      phases: [
+        "He bombards you with gravity arrows from across the dunes.",
+        "At half health he flies into the sky and crashes down as a meteor, then fights with gravity orbs.",
+      ],
+      tips: [
+        "Use the many summon signs on the battlefield; re-summon allies after they fall.",
+        "Ride Torrent and zig-zag to avoid his arrows while you close distance.",
+        "When the screen darkens in phase two, keep moving — he is about to land.",
+      ],
+      counters: ["Scarlet rot", "NPC summons", "Fighting on Torrent"],
+    },
+    {
+      id: "morgott",
+      name: "Morgott, the Omen King",
+      location: "Leyndell, Royal Capital (Elden Throne)",
+      required: true,
+      difficulty: 4,
+      phases: [
+        "Delayed sword and cane combos, holy daggers and a golden hammer.",
+        "Below half health he adds cursed-blood attacks with longer reach.",
+      ],
+      tips: [
+        "He shares Margit's rhythm — patient, late rolls work again.",
+        "Stay near him; many of his holy projectiles punish distance.",
+        "Melee Spirit Ashes such as the Mimic Tear help a lot.",
+      ],
+      counters: ["Bleed", "Spirit Ashes", "Heavy attacks between combos"],
+    },
+    {
+      id: "malenia",
+      name: "Malenia, Blade of Miquella",
+      location: "Elphael, Brace of the Haligtree",
+      required: false,
+      difficulty: 5,
+      phases: [
+        "Every hit she lands heals her, even on your shield. Her Waterfowl Dance is a deadly airborne flurry.",
+        "At half health she blooms into a goddess of rot with Scarlet Aeonia explosions.",
+      ],
+      tips: [
+        "Waterfowl Dance: run away from the first flurry, then roll toward and through the rest.",
+        "Don't trade hits — every hit she lands heals her.",
+        "When she rises for Scarlet Aeonia, sprint far away from the bloom.",
+      ],
+      counters: ["Bleed and frostbite", "Fast weapons to interrupt", "Patience over aggression"],
+    },
+  ],
+  lore: [
+    {
+      id: "elden-ring",
+      title: "The Elden Ring",
+      category: "Powers",
+      summary: "The order that governs the Lands Between, embodied in a Ring. Its shattering began everything that follows.",
+      related: ["shattering", "great-runes", "marika"],
+    },
+    {
+      id: "shattering",
+      title: "The Shattering",
+      category: "Events",
+      summary: "When the Elden Ring was broken, Queen Marika's demigod children seized its shards and fought among themselves. The war ended with no victor, only a wounded land.",
+      related: ["great-runes", "elden-ring", "tarnished"],
+    },
+    {
+      id: "great-runes",
+      title: "Great Runes",
+      category: "Powers",
+      summary: "The shards of the Elden Ring held by the demigods. A Tarnished who gathers them may approach the Erdtree and seek to become Elden Lord.",
+      related: ["shattering", "erdtree"],
+    },
+    {
+      id: "marika",
+      title: "Queen Marika the Eternal",
+      category: "Demigods & Rulers",
+      summary: "The god who ruled the Lands Between and bore the Elden Ring. Her absence and her choices hang over every part of the story.",
+      related: ["elden-ring", "erdtree"],
+    },
+    {
+      id: "erdtree",
+      title: "The Erdtree",
+      category: "Places",
+      summary: "The golden tree that towers over the land and symbolises Marika's order. Something now blocks its heart.",
+      related: ["marika", "great-runes", "grace"],
+    },
+    {
+      id: "tarnished",
+      title: "The Tarnished",
+      category: "People",
+      summary: "Warriors who lost the guidance of grace and were exiled, now called back after the Shattering. The player is one of them.",
+      related: ["grace", "roundtable"],
+    },
+    {
+      id: "grace",
+      title: "Sites of Grace",
+      category: "Places",
+      summary: "Glowing places of rest that restore flasks, let you level up and point faint golden light toward your next goal.",
+      related: ["tarnished", "erdtree"],
+    },
+    {
+      id: "roundtable",
+      title: "Roundtable Hold",
+      category: "Places",
+      summary: "A refuge for Tarnished, reached by grace, where smiths, merchants and fellow travellers gather between journeys.",
+      related: ["tarnished"],
+    },
+    {
+      id: "ranni",
+      title: "Ranni the Witch",
+      category: "Demigods & Rulers",
+      summary: "A Carian demigod who shed her body and pursues her own long plan apart from the Erdtree's order. Her questline leads to one of the game's endings.",
+      related: ["shattering", "marika"],
+      spoiler: true,
+    },
+  ],
+  builds: [
+    {
+      id: "strength",
+      name: "Strength",
+      style: "Heavy hits, poise and stagger",
+      description: "Slow, heavy weapons that break enemy stance. Forgiving for new players thanks to high damage per hit.",
+      stages: {
+        early: [
+          { label: "Starting class", items: ["Vagabond", "Hero"] },
+          { label: "Weapons", items: ["Claymore", "Lordsworn's Greatsword"] },
+          { label: "Ash of War", items: ["Lion's Claw"] },
+          { label: "Attribute focus", items: ["Vigor toward 20+", "Strength toward 30"] },
+        ],
+        mid: [
+          { label: "Weapons", items: ["Greatsword", "Zweihander"] },
+          { label: "Talismans", items: ["Claw Talisman", "Great-Jar's Arsenal", "Erdtree's Favor"] },
+          { label: "Attribute focus", items: ["Vigor 35–40", "Strength 40", "Endurance for heavier armour"] },
+        ],
+        late: [
+          { label: "Weapons", items: ["Giant-Crusher", "Ruins Greatsword", "Greatsword"] },
+          { label: "Talismans", items: ["Shard of Alexander", "Claw Talisman", "Great-Jar's Arsenal", "Erdtree's Favor"] },
+          { label: "Attribute focus", items: ["Vigor 50–60", "Strength 54–80 (two-handing multiplies Strength by 1.5)"] },
+        ],
+      },
+    },
+    {
+      id: "bleed",
+      name: "Dexterity & Bleed",
+      style: "Fast katanas and blood loss",
+      description: "Quick weapons that build up blood loss for large bursts of damage. Pairs Dexterity with some Arcane.",
+      stages: {
+        early: [
+          { label: "Starting class", items: ["Samurai"] },
+          { label: "Weapons", items: ["Uchigatana", "Bloodhound's Fang"] },
+          { label: "Ash of War", items: ["Bloody Slash"] },
+          { label: "Attribute focus", items: ["Vigor toward 20+", "Dexterity toward 30"] },
+        ],
+        mid: [
+          { label: "Weapons", items: ["Nagakiba", "Uchigatana (Blood affinity)"] },
+          { label: "Talismans", items: ["Lord of Blood's Exultation", "Green Turtle Talisman"] },
+          { label: "Attribute focus", items: ["Vigor 35–40", "Dexterity 40", "Arcane 20+ for stronger bleed"] },
+        ],
+        late: [
+          { label: "Weapons", items: ["Rivers of Blood", "Eleonora's Poleblade", "Hand of Malenia"] },
+          { label: "Talismans", items: ["Lord of Blood's Exultation", "Rotten Winged Sword Insignia", "Millicent's Prosthesis", "Shard of Alexander"] },
+          { label: "Attribute focus", items: ["Vigor 55–60", "Dexterity 60+", "Arcane 40+"] },
+        ],
+      },
+    },
+    {
+      id: "sorcery",
+      name: "Intelligence & Sorcery",
+      style: "Ranged glintstone magic",
+      description: "Fight from range with sorceries. Strong from the start once you find a good staff.",
+      stages: {
+        early: [
+          { label: "Starting class", items: ["Astrologer"] },
+          { label: "Staff", items: ["Astrologer's Staff", "Meteorite Staff"] },
+          { label: "Sorceries", items: ["Glintstone Pebble", "Rock Sling", "Great Glintstone Shard"] },
+          { label: "Attribute focus", items: ["Intelligence toward 30+", "Mind 15+", "Vigor toward 20"] },
+        ],
+        mid: [
+          { label: "Staff", items: ["Meteorite Staff", "Carian Regal Scepter"] },
+          { label: "Sorceries", items: ["Rock Sling", "Carian Slicer", "Rennala's Full Moon"] },
+          { label: "Talismans", items: ["Graven-School Talisman", "Radagon Icon"] },
+          { label: "Attribute focus", items: ["Intelligence 50", "Mind 25", "Vigor 35"] },
+        ],
+        late: [
+          { label: "Staff", items: ["Lusat's Glintstone Staff", "Carian Regal Scepter"] },
+          { label: "Sorceries", items: ["Comet Azur", "Stars of Ruin", "Rock Sling"] },
+          { label: "Talismans", items: ["Godfrey Icon", "Magic Scorpion Charm", "Graven-Mass Talisman"] },
+          { label: "Attribute focus", items: ["Intelligence 60–80", "Mind 30–40", "Vigor 50+"] },
+        ],
+      },
+    },
+    {
+      id: "faith",
+      name: "Faith & Incantations",
+      style: "Fire, lightning and healing",
+      description: "Incantations mix offence and support. Fire and lightning prayers carry the early game; heals keep you safe.",
+      stages: {
+        early: [
+          { label: "Starting class", items: ["Prophet", "Confessor"] },
+          { label: "Seal", items: ["Finger Seal"] },
+          { label: "Incantations", items: ["Catch Flame", "Flame Sling", "Heal"] },
+          { label: "Attribute focus", items: ["Faith toward 25", "Mind 15+", "Vigor toward 20"] },
+        ],
+        mid: [
+          { label: "Seal", items: ["Golden Order Seal", "Erdtree Seal"] },
+          { label: "Incantations", items: ["Lightning Spear", "Black Flame", "Flame, Grant Me Strength"] },
+          { label: "Talismans", items: ["Flock's Canvas Talisman", "Radagon Icon"] },
+          { label: "Attribute focus", items: ["Faith 40", "Mind 25", "Vigor 35"] },
+        ],
+        late: [
+          { label: "Seal", items: ["Erdtree Seal", "Golden Order Seal"] },
+          { label: "Incantations", items: ["Ancient Dragons' Lightning Strike", "Black Flame", "Elden Stars"] },
+          { label: "Talismans", items: ["Flock's Canvas Talisman", "Godfrey Icon", "Radagon Icon"] },
+          { label: "Attribute focus", items: ["Faith 60–80", "Mind 30+", "Vigor 50+"] },
+        ],
+      },
+    },
+  ],
+};

@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as ApiCompanionChatRouteImport } from './routes/api/companion-chat'
 import { Route as JourneyGameIdRouteImport } from './routes/journey.$gameId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +24,11 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiCompanionChatRoute = ApiCompanionChatRouteImport.update({
+  id: '/api/companion-chat',
+  path: '/api/companion-chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const JourneyGameIdRoute = JourneyGameIdRouteImport.update({
   id: '/journey/$gameId',
   path: '/journey/$gameId',
@@ -32,30 +38,34 @@ const JourneyGameIdRoute = JourneyGameIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/api/companion-chat': typeof ApiCompanionChatRoute
   '/journey/$gameId': typeof JourneyGameIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/api/companion-chat': typeof ApiCompanionChatRoute
   '/journey/$gameId': typeof JourneyGameIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/api/companion-chat': typeof ApiCompanionChatRoute
   '/journey/$gameId': typeof JourneyGameIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/journey/$gameId'
+  fullPaths: '/' | '/about' | '/api/companion-chat' | '/journey/$gameId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/journey/$gameId'
-  id: '__root__' | '/' | '/about' | '/journey/$gameId'
+  to: '/' | '/about' | '/api/companion-chat' | '/journey/$gameId'
+  id: '__root__' | '/' | '/about' | '/api/companion-chat' | '/journey/$gameId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  ApiCompanionChatRoute: typeof ApiCompanionChatRoute
   JourneyGameIdRoute: typeof JourneyGameIdRoute
 }
 
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/companion-chat': {
+      id: '/api/companion-chat'
+      path: '/api/companion-chat'
+      fullPath: '/api/companion-chat'
+      preLoaderRoute: typeof ApiCompanionChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/journey/$gameId': {
       id: '/journey/$gameId'
       path: '/journey/$gameId'
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  ApiCompanionChatRoute: ApiCompanionChatRoute,
   JourneyGameIdRoute: JourneyGameIdRoute,
 }
 export const routeTree = rootRouteImport
