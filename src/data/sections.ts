@@ -6,10 +6,11 @@ export const SECTIONS: SectionDefinition[] = [
     title: "Boss Coach",
     description:
       "Study a fight before you face it — its phases, its openings and a calm plan for the next attempt.",
+    mode: "reference",
     capabilities: [
-      "Break a boss into its phases and tells",
-      "Suggest openings that suit the way you play",
-      "Turn a failed attempt into one thing to try next",
+      "See each boss's phases, tips and counters",
+      "Filter by required, optional or not yet defeated",
+      "Track the bosses you've beaten on this device",
     ],
   },
   {
@@ -17,10 +18,11 @@ export const SECTIONS: SectionDefinition[] = [
     title: "Lore Explorer",
     description:
       "Follow the threads of the world — its people, its places and the questions it leaves open.",
+    mode: "reference",
     capabilities: [
-      "Explain characters, places and events in plain words",
-      "Keep spoilers behind your own progress",
-      "Connect related stories to one another",
+      "Search characters, places and powers",
+      "Keep late-game entries hidden until you choose",
+      "Jump between connected threads",
     ],
   },
   {
@@ -28,10 +30,11 @@ export const SECTIONS: SectionDefinition[] = [
     title: "Build Creator",
     description:
       "Shape a build around how you like to play, then refine it as the journey changes.",
+    mode: "reference",
     capabilities: [
-      "Recommend a direction from your playstyle",
-      "Plan upgrades and priorities step by step",
-      "Explain why each choice matters",
+      "Pick a playstyle and a stage of the journey",
+      "See the gear, skills and priorities that fit",
+      "Save builds on this device and reload them",
     ],
   },
   {
@@ -39,10 +42,11 @@ export const SECTIONS: SectionDefinition[] = [
     title: "AI Companion",
     description:
       "A patient voice beside the fire for anything the other sections don't cover.",
+    mode: "ai",
     capabilities: [
-      "Answer questions about where to go next",
-      "Keep track of where you are in your journey",
-      "Offer a steady word after a hard loss",
+      "Answer any question about the game with live AI",
+      "Remember the conversation on this device",
+      "Start fresh whenever you like",
     ],
   },
 ];

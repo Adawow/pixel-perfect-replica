@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { BookOpen, Flame, Hammer, Swords, type LucideIcon } from "lucide-react";
 import type { GameId } from "@/types/game";
 import type { SectionDefinition, SectionId } from "@/types/journey";
-import { AwaitingAiBadge } from "./AwaitingAiBadge";
+import { FeatureModeBadge } from "./FeatureModeBadge";
 
 export const SECTION_ICONS: Record<SectionId, LucideIcon> = {
   "boss-coach": Swords,
@@ -39,7 +39,7 @@ export function FeatureCard({ gameId, section, index, summary }: Props) {
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{summary}</p>
       </div>
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <AwaitingAiBadge />
+        <FeatureModeBadge mode={section.mode} />
         <span className="text-xs uppercase tracking-[0.2em] text-firelight transition-transform duration-500 group-hover:translate-x-1">
           Open <span aria-hidden>→</span>
         </span>

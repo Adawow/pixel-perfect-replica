@@ -7,7 +7,9 @@ export interface SectionDefinition {
   id: SectionId;
   title: string;
   description: string;
-  /** What the feature will do once AI is connected. */
+  /** "ai" answers with live AI; "reference" works from hand-written data. */
+  mode: "ai" | "reference";
+  /** What the feature lets the player do. */
   capabilities: string[];
 }
 

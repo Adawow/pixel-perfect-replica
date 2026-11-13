@@ -15,7 +15,7 @@ export function JourneyOverview({ game, journey }: { game: Game; journey: Journe
               Four ways to prepare <span className="italic text-muted-foreground">for {game.title}.</span>
             </>
           }
-          description="Choose a section to see what it will offer. Each one is awaiting AI integration; the reference notes inside are written by hand."
+          description="Boss Coach, Lore Explorer and Build Creator are reference tools written by hand. AI Companion answers anything else with live AI."
         />
         <aside className="max-w-xs border-l border-journey/40 pl-5 text-sm leading-relaxed text-muted-foreground">
           <p className="eyebrow mb-2 text-journey">The {journey.restingPlace}</p>

@@ -10,9 +10,14 @@ import { getSection, parseSection } from "@/data/sections";
 import type { SectionId } from "@/types/journey";
 
 export const Route = createFileRoute("/journey/$gameId")({
-  validateSearch: (search: Record<string, unknown>): { section?: SectionId | undefined } => ({
-    section: parseSection(search["section"]),
-  }),
+  validateSearch: (search: Record<string, unknown>): { section?: SectionId | undefined; ask?: string | undefined } => {
+    const ask = search["ask"];
+    return {
+      section: parseSection(search["section"]),
+      // A question handed to the AI Companion from another tool; prefilled, never auto-sent.
+      ask: typeof ask === "string" && ask.trim() ? ask.slice(0, 500) : undefined,
+    };
+  },
   loader: ({ params }) => {
     const game = getGame(params.gameId);
     if (!game || !getJourney(params.gameId)) throw notFound();
@@ -51,7 +56,7 @@ function JourneyPage() {
   return (
     <JourneyLayout game={game} journey={journey} section={section?.id}>
       {section ? (
-        <SectionPanel key={section.id} game={game} journey={journey} section={section} />
+        <SectionPanel key={`${game.id}-${section.id}`} game={game} section={section} />
       ) : (
         <JourneyOverview game={game} journey={journey} />
       )}
